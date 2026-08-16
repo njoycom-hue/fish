@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.duruone.location",
+      "sha256_cert_fingerprints": [
+        "9D:CE:1D:B3:D2:C2:14:9E:9D:B3:11:14:00:19:D4:CD:FB:D4:B9:E9:28:C9:84:F5:F6:38:BF:76:1D:D7:B9:B6"
+      ]
+    }
+  }
+]
