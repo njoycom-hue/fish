@@ -18,59 +18,71 @@
 
 <div class="box">
   <strong>요약</strong><br>
-  이 앱은 <strong>어떤 개인정보도 수집하지 않습니다.</strong>
-  서버가 없고, 계정이 없으며, 앱에 인터넷 권한 자체가 들어 있지 않습니다.
+  이 앱 자체는 이름·연락처 같은 개인정보를 수집하지 않습니다. 다만 재생이 끝날 때
+  전면광고를 보여주기 위해 <strong>Google AdMob</strong>을 쓰고, 이 과정에서 광고 식별자 등
+  일부 정보가 Google로 전달됩니다. 수면 감지에 쓰는 센서 값은 이것과 무관하게
+  기기 밖으로 전송되지 않습니다.
 </div>
 
-<h2>1. 수집하는 개인정보</h2>
-<p>없습니다.</p>
-<table>
-  <tr><th>항목</th><th>수집 여부</th></tr>
-  <tr><td>이름 · 이메일 · 전화번호</td><td>수집하지 않음</td></tr>
-  <tr><td>위치</td><td>수집하지 않음</td></tr>
-  <tr><td>연락처 · 사진 · 파일</td><td>접근하지 않음</td></tr>
-  <tr><td>광고 식별자(AAID)</td><td>사용하지 않음</td></tr>
-  <tr><td>사용 기록 · 분석 도구</td><td>사용하지 않음</td></tr>
-  <tr><td>오류 보고 도구</td><td>사용하지 않음</td></tr>
-</table>
+<h2>1. 이 앱이 직접 수집하는 개인정보</h2>
+<p>없습니다. 이름·이메일·전화번호·위치를 수집하지 않고, 연락처·사진·파일에 접근하지 않으며,
+자체 사용 기록·분석 도구·오류 보고 도구를 두지 않았습니다.</p>
 
 <h2>2. 기기 센서</h2>
 <p>수면 감지 기능을 켜면 앱이 <strong>가속도 센서</strong>를 읽습니다.
 이 값은 "지금 움직임이 있는가"를 판단하는 데에만 쓰이며,
-<strong>메모리에서만 처리되고 저장되지 않으며 기기 밖으로 전송되지 않습니다.</strong></p>
+<strong>메모리에서만 처리되고 저장되지 않으며 기기 밖으로 전송되지 않습니다.</strong>
+아래 3번의 광고와는 완전히 별개로 동작합니다.</p>
 <p>앱이 기기에 저장하는 것은 사용자가 고른 설정값(선택한 소리, 볼륨, 타이머 길이, 음색 등)뿐이고,
 이 설정도 앱을 삭제하면 함께 지워집니다.</p>
 
-<h2>3. 인터넷 연결</h2>
-<p>이 앱은 인터넷을 사용하지 않습니다.</p>
-<p>안드로이드 앱이 네트워크를 쓰려면 <code>INTERNET</code> 권한을 선언해야 하는데,
-이 앱은 그 권한을 <strong>선언하지 않았습니다.</strong> 따라서 기술적으로 어떤 데이터도
-외부로 보낼 수 없습니다. 이는 앱 정보 화면의 권한 목록에서 직접 확인하실 수 있습니다.</p>
-<p>앱 안의 배너를 누르면 기기의 기본 브라우저가 열립니다. 이때 연결은 브라우저가 자기 권한으로
-수행하며, 앱은 어떤 정보도 함께 보내지 않습니다.</p>
+<h2>3. 광고 (Google AdMob)</h2>
+<p>소리 재생이 끝나면(정지 버튼을 눌렀을 때나, 수면 감지로 자동 종료됐을 때) 전면광고를
+한 번 보여줍니다. 광고는 <strong>Google AdMob</strong>이 제공하며, 광고를 요청·표시하는
+과정에서 광고 식별자(AAID), 대략적인 기기 정보, 대략적 위치(도시 단위 이하의 정확한
+위치는 아님) 등이 Google로 전달될 수 있습니다. 이 정보는 이 앱이 아니라
+<strong>Google이 자신의 정책에 따라</strong> 처리합니다 — 자세한 내용은
+<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google 광고 정책</a>과
+<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 참고하세요.</p>
+<p>유럽경제지역(EEA)·영국·스위스 사용자에게는 앱을 처음 열 때 Google의 동의관리플랫폼(UMP)을
+통해 동의를 구하고, 동의가 끝나기 전에는 광고를 요청하지 않습니다. 광고가 아직 실리지
+않았거나 실패한 경우 광고 없이 그냥 넘어갑니다.</p>
+<p>홈 화면 아래 이미지 배너는 광고와 다릅니다 — 앱에 함께 담긴 그림 파일이라
+인터넷 연결이 필요 없고, Google이나 다른 어떤 곳에도 정보를 보내지 않습니다.
+누르면 기기의 기본 브라우저가 열릴 뿐입니다.</p>
 
 <h2>4. 사용하는 권한</h2>
 <table>
   <tr><th>권한</th><th>용도</th></tr>
+  <tr><td>인터넷</td><td>광고 요청 · 게재 (Google AdMob)</td></tr>
+  <tr><td>네트워크 상태 확인</td><td>광고 요청 전 연결 가능 여부 확인 (Google AdMob)</td></tr>
   <tr><td>포그라운드 서비스 / 미디어 재생</td><td>화면을 끈 상태에서도 소리를 계속 재생하기 위해</td></tr>
   <tr><td>알림</td><td>재생 중임을 알리고 정지 버튼을 제공하기 위해</td></tr>
   <tr><td>절전 모드 해제</td><td>화면이 꺼져도 소리가 끊기지 않게 하기 위해</td></tr>
 </table>
-<p>위치·마이크·카메라·연락처·저장소 등 민감 권한은 사용하지 않습니다.</p>
+<p>위치·마이크·카메라·연락처·저장소 등 민감 권한은 사용하지 않습니다.
+인터넷 권한이 있다고 해서 수면 감지 센서 값이나 사용자가 넣은 소리 파일이
+밖으로 나가는 것은 아닙니다 — 그 둘은 광고 SDK와 코드상으로 분리되어 있습니다.</p>
 
 <h2>5. 제3자 제공 및 처리 위탁</h2>
-<p>없습니다. 광고 네트워크, 분석 도구, 외부 SDK를 포함하지 않습니다.</p>
+<p><strong>Google AdMob</strong>이 유일한 제3자입니다. 광고 게재를 위해 위 3번에 적은
+정보를 Google에 전달(위탁이 아닌 Google 자체 처리)합니다. 그 외의 광고 네트워크,
+분석 도구, 외부 SDK는 포함하지 않습니다.</p>
 
 <h2>6. 개인정보의 보유 및 파기</h2>
-<p>수집하는 개인정보가 없으므로 보유하거나 파기할 개인정보도 없습니다.
-기기에 저장된 설정값은 앱을 삭제하면 즉시 함께 삭제됩니다.</p>
+<p>이 앱이 직접 보유하는 개인정보는 없습니다. 기기에 저장된 설정값은 앱을 삭제하면
+즉시 함께 삭제됩니다. 광고 SDK가 Google 서버로 보낸 정보의 보유·파기는
+Google의 정책을 따릅니다.</p>
 
 <h2>7. 이용자의 권리</h2>
-<p>수집·보관하는 개인정보가 없으므로 열람·정정·삭제를 요청할 대상이 없습니다.
-기기에 저장된 설정값은 사용자가 앱을 삭제하는 것으로 언제든지 지울 수 있습니다.</p>
+<p>이 앱이 직접 수집·보관하는 개인정보는 없으므로 이 앱을 상대로 열람·정정·삭제를
+요청할 대상도 없습니다. 광고 개인화를 원치 않으시면 기기의 광고 설정에서
+"광고 개인화 선택 해제"를 켜시면 됩니다(설정 → Google → 광고).
+기기에 저장된 이 앱의 설정값은 앱을 삭제하는 것으로 언제든지 지울 수 있습니다.</p>
 
 <h2>8. 아동의 개인정보</h2>
-<p>수집하는 정보가 없으므로 만 14세 미만 아동의 개인정보도 수집하지 않습니다.</p>
+<p>이 앱은 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 개인정보를 의도적으로
+수집하지 않습니다.</p>
 
 <h2>9. 방침의 변경</h2>
 <p>이 방침이 바뀌면 이 페이지와 앱 스토어 등록정보에 변경된 내용과 시행일을 게시합니다.</p>
@@ -82,18 +94,29 @@
 <hr style="border:0;border-top:1px solid var(--line);margin:56px 0 40px">
 
 <h2>Privacy Policy (English)</h2>
-<p><strong>This app collects no personal data.</strong> There is no server, no account, and the app
-does not declare the <code>INTERNET</code> permission at all, so it cannot transmit any data.</p>
+<p>This app does not itself collect personal data such as your name or contact details. When
+playback ends — either because you tapped stop or sleep detection stopped it automatically —
+the app shows one interstitial ad served by <strong>Google AdMob</strong>. Serving that ad may
+send your advertising ID, coarse device information, and approximate (non-precise) location to
+Google, which processes it under its own policies —
+see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's
+Ads Policy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's
+Privacy Policy</a>. Users in the EEA, UK, and Switzerland are asked for consent via Google's User
+Messaging Platform (UMP) before any ad is requested; if consent isn't given, or an ad fails to
+load, the app simply continues without one.</p>
 <p>When sleep detection is enabled, the app reads the <strong>accelerometer</strong> solely to decide
-whether the device is currently moving. Those readings are processed in memory only — they are never
-stored and never leave the device. The only thing saved on the device is your own settings
-(chosen sounds, volume, timer length, tone), which are removed when you uninstall the app.</p>
-<p>Permissions used: foreground service / media playback (to keep audio running with the screen off),
-notifications (to show playback status and a stop button), and wake lock (to keep audio from stalling).
-No location, microphone, camera, contacts, or storage access. No third-party SDKs, advertising
-networks, or analytics.</p>
-<p>Banners shown inside the app are images bundled with the app. Tapping one opens your device's
-browser; the app itself sends nothing.</p>
+whether the device is currently moving. Those readings are processed in memory only — they are
+never stored, and never sent anywhere, including to the ad SDK. The only thing saved on the
+device is your own settings (chosen sounds, volume, timer length, tone), removed when you
+uninstall the app.</p>
+<p>Permissions used: internet and network state (for ad requests only), foreground service /
+media playback (to keep audio running with the screen off), notifications (to show playback
+status and a stop button), and wake lock (to keep audio from stalling). No location, microphone,
+camera, contacts, or storage access. Google AdMob is the only third party; no other advertising
+network or analytics SDK is included.</p>
+<p>The image banner shown on the home screen is not an ad — it's a picture bundled with the app,
+needs no network connection, and sends nothing anywhere. Tapping it just opens your device's
+browser.</p>
 <p>Contact: <a href="mailto:admin@duruone.com">admin@duruone.com</a></p>
 
 <footer>
