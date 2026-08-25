@@ -18,10 +18,10 @@
 
 <div class="box">
   <strong>요약</strong><br>
-  이 앱 자체는 이름·연락처 같은 개인정보를 수집하지 않습니다. 다만 재생 앞뒤에
-  전면광고를 보여주기 위해 <strong>Google AdMob</strong>을 쓰고, 이 과정에서 광고 식별자 등
-  일부 정보가 Google로 전달됩니다. 그 광고를 언제·얼마나 자주 보여줄지 정하는
-  설정값은 개인정보 없이 개발자가 직접 운영하는 서버에서 받아옵니다. 수면 감지에
+  이 앱 자체는 이름·연락처 같은 개인정보를 수집하지 않습니다. 다만 홈 화면 배너와
+  재생 앞뒤 전면광고를 보여주기 위해 <strong>Google AdMob</strong>을 쓰고, 이 과정에서
+  광고 식별자 등 일부 정보가 Google로 전달됩니다. 전면광고를 언제·얼마나 자주 보여줄지
+  정하는 설정값은 개인정보 없이 개발자가 직접 운영하는 서버에서 받아옵니다. 수면 감지에
   쓰는 센서 값은 이것들과 무관하게 기기 밖으로 전송되지 않습니다.
 </div>
 
@@ -38,28 +38,32 @@
 이 설정도 앱을 삭제하면 함께 지워집니다.</p>
 
 <h2>3. 광고 (Google AdMob)</h2>
-<p><strong>소리가 나오는 동안에는 광고가 뜨지 않습니다.</strong> 전면광고는 재생 앞뒤
-— 앱을 열었을 때, 또는 정지 버튼을 눌렀거나 수면 감지로 자동 종료됐을 때 — 에만
-표시될 수 있고, 얼마나 자주 뜰지는 개발자가 원격으로 정한 값(하루 최대 횟수, 광고
-사이 최소 간격 등)에 따라 제한됩니다. 화면이 꺼진 채 자동 종료된 경우에는 앱이
-화면에 떠 있지 않으므로 광고도 뜨지 않습니다. 광고는 <strong>Google AdMob</strong>이
-제공하며, 광고를 요청·표시하는 과정에서 광고 식별자(AAID), 대략적인 기기 정보,
-대략적 위치(도시 단위 이하의 정확한 위치는 아님) 등이 Google로 전달될 수 있습니다.
-이 정보는 이 앱이 아니라 <strong>Google이 자신의 정책에 따라</strong> 처리합니다 —
-자세한 내용은
+<p>이 앱은 두 가지 형태의 광고를 씁니다 — 홈 화면에 계속 떠 있는 <strong>배너
+광고</strong>와, 재생 앞뒤에만 나타나는 <strong>전면광고</strong>입니다.
+<strong>소리가 나오는 동안(재생 화면)에는 어느 쪽도 뜨지 않습니다.</strong>
+전면광고는 재생 앞뒤 — 앱을 열었을 때, 또는 정지 버튼을 눌렀거나 수면 감지로
+자동 종료됐을 때 — 에만 표시될 수 있고, 얼마나 자주 뜰지는 개발자가 원격으로
+정한 값(하루 최대 횟수, 광고 사이 최소 간격 등)에 따라 제한됩니다. 화면이 꺼진
+채 자동 종료된 경우에는 앱이 화면에 떠 있지 않으므로 전면광고도 뜨지 않습니다.
+두 광고 모두 <strong>Google AdMob</strong>이 제공하며, 광고를 요청·표시하는
+과정에서 광고 식별자(AAID), 대략적인 기기 정보, 대략적 위치(도시 단위 이하의
+정확한 위치는 아님) 등이 Google로 전달될 수 있습니다. 이 정보는 이 앱이 아니라
+<strong>Google이 자신의 정책에 따라</strong> 처리합니다 — 자세한 내용은
 <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google 광고 정책</a>과
 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 참고하세요.</p>
 <p>유럽경제지역(EEA)·영국·스위스 사용자에게는 앱을 처음 열 때 Google의 동의관리플랫폼(UMP)을
 통해 동의를 구하고, 동의가 끝나기 전에는 광고를 요청하지 않습니다. 광고가 아직 실리지
 않았거나 실패한 경우 광고 없이 그냥 넘어갑니다.</p>
-<p>광고를 언제(시작 시·종료 시 각각 켜고 끄기) 얼마나 자주(하루 최대 횟수, 최소 간격 등)
-보여줄지는 앱을 열 때마다 개발자가 직접 운영하는 서버(<code>duruone.com</code>)에서
-그 설정값만 받아옵니다. 이 요청에는 사용자를 식별할 수 있는 어떤 값도 담기지 않고
-— 기기나 사용자를 구분하지 않는 단순 조회(GET)입니다 — 서버는 아무것도 저장하지
-않습니다. 진짜 광고 단위 ID는 여기 포함되지 않고 앱 안에만 있습니다.</p>
-<p>홈 화면 아래 이미지 배너는 광고와 다릅니다 — 앱에 함께 담긴 그림 파일이라
-인터넷 연결이 필요 없고, Google이나 다른 어떤 곳에도 정보를 보내지 않습니다.
-누르면 기기의 기본 브라우저가 열릴 뿐입니다.</p>
+<p>전면광고를 언제(시작 시·종료 시 각각 켜고 끄기) 얼마나 자주(하루 최대 횟수, 최소
+간격 등) 보여줄지는 앱을 열 때마다 개발자가 직접 운영하는 서버(<code>duruone.com</code>)
+에서 그 설정값만 받아옵니다. 이 요청에는 사용자를 식별할 수 있는 어떤 값도 담기지
+않고 — 기기나 사용자를 구분하지 않는 단순 조회(GET)입니다 — 서버는 아무것도
+저장하지 않습니다. 진짜 광고 단위 ID는 여기 포함되지 않고 앱 안에만 있습니다.
+배너 광고는 이 설정과 무관하게, 광고 사용이 켜져 있으면 홈 화면에 계속 표시됩니다.</p>
+<p>홈 화면에는 이 배너 광고와 별개로, 앱에 함께 담긴 그림 파일을 보여주는
+자리도 있을 수 있습니다. 이건 광고 네트워크를 거치지 않는 순수 이미지라 인터넷
+연결이 필요 없고, Google이나 다른 어떤 곳에도 정보를 보내지 않습니다 — 누르면
+기기의 기본 브라우저가 열릴 뿐입니다.</p>
 
 <h2>4. 사용하는 권한</h2>
 <table>
@@ -106,24 +110,28 @@ Google의 정책을 따릅니다.</p>
 <hr style="border:0;border-top:1px solid var(--line);margin:56px 0 40px">
 
 <h2>Privacy Policy (English)</h2>
-<p>This app does not itself collect personal data such as your name or contact details.
-<strong>No ad ever appears while sound is playing.</strong> An interstitial ad may appear only
-around playback — when you open the app, or when playback stops (tapped stop, or sleep detection
-ending it automatically) — and how often is capped by settings the developer sets remotely (daily
-limit, minimum gap between ads, etc.). If playback ends automatically while the screen is off, the
-app isn't in the foreground, so no ad is shown. When an ad does appear, it is served by
-<strong>Google AdMob</strong>. Serving it may send your advertising ID, coarse device information,
-and approximate (non-precise) location to Google, which processes it under its own policies —
+<p>This app does not itself collect personal data such as your name or contact details. It uses
+two ad formats: a <strong>banner ad</strong> that sits on the home screen, and an
+<strong>interstitial ad</strong> that appears only around playback.
+<strong>Neither ever appears on the playing screen — no ad is shown while sound is actually
+playing.</strong> The interstitial may appear when you open the app, or when playback stops
+(tapped stop, or sleep detection ending it automatically), and how often is capped by settings the
+developer sets remotely (daily limit, minimum gap between ads, etc.). If playback ends
+automatically while the screen is off, the app isn't in the foreground, so no interstitial is
+shown. Both ad formats are served by <strong>Google AdMob</strong>. Serving them may send your
+advertising ID, coarse device information, and approximate (non-precise) location to Google, which
+processes it under its own policies —
 see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's
 Ads Policy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's
 Privacy Policy</a>. Users in the EEA, UK, and Switzerland are asked for consent via Google's User
 Messaging Platform (UMP) before any ad is requested; if consent isn't given, or an ad fails to
 load, the app simply continues without one.</p>
-<p>Separately, each time you open the app it fetches the current ad-timing settings (whether ads
-are on, whether they show on open/stop, daily and per-session limits) from a server the developer
-runs at <code>duruone.com</code>. This is a plain GET request with no identifying information —
-it doesn't distinguish one device or user from another — and the server stores nothing from it.
-The real AdMob ad unit ID is never part of this and lives only in the app build.</p>
+<p>Separately, each time you open the app it fetches the current interstitial-timing settings
+(whether ads are on, whether they show on open/stop, daily and per-session limits) from a server
+the developer runs at <code>duruone.com</code>. This is a plain GET request with no identifying
+information — it doesn't distinguish one device or user from another — and the server stores
+nothing from it. The real AdMob ad unit IDs are never part of this and live only in the app build.
+The banner ad is not affected by these settings — it simply follows the same ads-on/off switch.</p>
 <p>When sleep detection is enabled, the app reads the <strong>accelerometer</strong> solely to decide
 whether the device is currently moving. Those readings are processed in memory only — they are
 never stored, and never sent anywhere, including to the ad SDK. The only thing saved on the
@@ -135,9 +143,9 @@ notifications (to show playback status and a stop button), and wake lock (to kee
 stalling). No location, microphone, camera, contacts, or storage access. Google AdMob is the only
 third party; <code>duruone.com</code> is the developer's own server, not a third party, and no
 other advertising network or analytics SDK is included.</p>
-<p>The image banner shown on the home screen is not an ad — it's a picture bundled with the app,
-needs no network connection, and sends nothing anywhere. Tapping it just opens your device's
-browser.</p>
+<p>Separately from the AdMob banner ad, the home screen may also show a spot for an image bundled
+with the app itself. That image doesn't go through any ad network — it needs no network
+connection and sends nothing anywhere. Tapping it just opens your device's browser.</p>
 <p>Contact: <a href="mailto:admin@duruone.com">admin@duruone.com</a></p>
 
 <footer>
