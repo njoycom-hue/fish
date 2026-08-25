@@ -1,8 +1,0 @@
-{
-  "ads_enabled": true,
-  "warmup_stages": 2,
-  "min_gap_sec": 150,
-  "min_stages_between": 2,
-  "max_per_day": 6,
-  "max_per_session": 4
-}
