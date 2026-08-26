@@ -1,0 +1,65 @@
+:root {
+	--cream: #FFF6E5;
+	--ink: #3A3550;
+	--muted: #6E6A85;
+	--line: #E6DCC6;
+	--sun: #FFC93C;
+	--grape: #9B6BDF;
+	--paper: #FFFFFF;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--cream: #201D2B;
+		--ink: #F2EDE2;
+		--muted: #A9A3BC;
+		--line: #38334A;
+		--paper: #282435;
+	}
+}
+* { box-sizing: border-box; }
+body {
+	margin: 0;
+	padding: 0 20px 80px;
+	background: var(--cream);
+	color: var(--ink);
+	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+		"Malgun Gothic", "Noto Sans KR", sans-serif;
+	line-height: 1.75;
+	font-size: 17px;
+	word-break: keep-all;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+header { padding: 48px 0 8px; border-bottom: 3px solid var(--line); margin-bottom: 32px; }
+header .app { font-size: 15px; color: var(--muted); letter-spacing: .04em; }
+h1 { font-size: 30px; margin: 6px 0 10px; line-height: 1.35; }
+h2 {
+	font-size: 21px; margin: 40px 0 12px; padding-top: 20px;
+	border-top: 1px solid var(--line);
+}
+h2:first-of-type { border-top: 0; padding-top: 0; }
+h3 { font-size: 17px; margin: 24px 0 8px; }
+p, li { color: var(--ink); }
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+.date { color: var(--muted); font-size: 15px; }
+a { color: var(--grape); }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+th { background: var(--paper); font-weight: 700; }
+.card {
+	background: var(--paper); border: 2px solid var(--line);
+	border-radius: 16px; padding: 18px 22px; margin: 24px 0;
+}
+.card.warn { border-color: var(--sun); }
+.card p:first-child { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.nav { margin: 28px 0 0; font-size: 15px; }
+.nav a { margin-right: 18px; }
+footer {
+	margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+	color: var(--muted); font-size: 14px;
+}
+code {
+	background: var(--paper); border: 1px solid var(--line);
+	border-radius: 6px; padding: 1px 6px; font-size: 15px;
+}
