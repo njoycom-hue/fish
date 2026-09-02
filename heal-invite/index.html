@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>희망나눔 희망동행 초대</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7FAFA;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    color: #22252A;
+  }
+  .card {
+    max-width: 420px;
+    width: 90%;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  h1 { font-size: 20px; margin: 0 0 8px; }
+  p { line-height: 1.6; color: rgba(34,37,42,0.7); margin: 0 0 20px; }
+  .code {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: #DFF7F3;
+    color: #0B8F80;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  .btn-primary { background: #00B8A6; color: #fff; }
+  .btn-secondary { background: transparent; color: #22252A; border: 1px solid rgba(34,37,42,0.2); }
+  .hint { font-size: 13px; color: rgba(34,37,42,0.55); margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>희망나눔 희망동행 초대</h1>
+    <p>아래 초대 코드로 희망동행에 연결할 수 있어요.</p>
+    <div class="code" id="code">------</div>
+    <a class="btn btn-primary" id="storeLink" href="#">Play 스토어에서 설치하기</a>
+    <button class="btn btn-secondary" id="copyBtn">초대 코드 복사하기</button>
+    <p class="hint">이미 앱이 깔려 있다면 이 화면 대신 앱이 바로 열리면서 자동으로 연결돼요.<br />
+      새로 설치했다면, 앱을 열고 설정 화면의 "초대코드로 연결하기"에서<br />
+      위 코드와 관계를 입력해 연결해주세요.</p>
+  </div>
+  <script>
+    const packageName = 'com.duruone.hope';
+    const parts = location.pathname.split('/').filter(Boolean);
+    const inviteIndex = parts.indexOf('heal-invite');
+    const code = inviteIndex !== -1 ? (parts[inviteIndex + 1] || '') : '';
+
+    document.getElementById('code').textContent = code || '코드 없음';
+
+    const referrer = encodeURIComponent('invite_code=' + code);
+    document.getElementById('storeLink').href =
+      'https://play.google.com/store/apps/details?id=' + packageName + '&referrer=' + referrer;
+
+    document.getElementById('copyBtn').addEventListener('click', function () {
+      navigator.clipboard.writeText(code).then(function () {
+        const btn = document.getElementById('copyBtn');
+        const original = btn.textContent;
+        btn.textContent = '복사했어요!';
+        setTimeout(function () { btn.textContent = original; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

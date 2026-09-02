@@ -8,5 +8,17 @@
         "9D:CE:1D:B3:D2:C2:14:9E:9D:B3:11:14:00:19:D4:CD:FB:D4:B9:E9:28:C9:84:F5:F6:38:BF:76:1D:D7:B9:B6"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.duruone.hope",
+      "sha256_cert_fingerprints": [
+        "4D:16:04:B6:47:9A:59:03:9D:CB:83:ED:E7:31:0A:25:54:32:A1:AC:57:D4:AD:D0:41:C0:C6:8E:D6:4A:02:15",
+        "34:C5:09:29:6D:73:AC:AA:3E:C8:FA:C0:60:9D:BE:0A:BB:37:E5:24:3B:93:EE:BE:F2:C9:D6:91:C2:C7:53:75",
+        "D7:1F:B4:77:43:19:9D:78:E9:3C:B5:C3:62:68:BA:01:DF:53:08:45:08:33:43:DF:E8:D7:06:3C:FE:0E:D1:59"
+      ]
+    }
   }
 ]
