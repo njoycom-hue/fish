@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>찾아줘 가족 초대</title>
+<title id="pageTitle">초대</title>
 <style>
   :root { color-scheme: light; }
   body {
@@ -12,26 +12,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FBEACB;
     font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    color: #4A2E22;
   }
   .card {
     max-width: 420px;
     width: 90%;
-    background: #FFF8E9;
     border-radius: 24px;
     padding: 32px 24px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   h1 { font-size: 20px; margin: 0 0 8px; }
-  p { line-height: 1.6; color: rgba(74,46,34,0.75); margin: 0 0 20px; }
+  p { line-height: 1.6; margin: 0 0 20px; opacity: 0.75; }
   .code {
     font-size: 28px;
     font-weight: 800;
     letter-spacing: 4px;
-    background: #FBEACB;
     border-radius: 14px;
     padding: 14px;
     margin-bottom: 20px;
@@ -48,42 +44,89 @@
     cursor: pointer;
     text-decoration: none;
     box-sizing: border-box;
+    color: #fff;
   }
-  .btn-primary { background: #F16A5C; color: #fff; }
-  .btn-secondary { background: transparent; color: #4A2E22; border: 1px solid rgba(74,46,34,0.2); }
-  .hint { font-size: 13px; color: rgba(74,46,34,0.55); margin-top: 4px; }
+  .btn-secondary { background: transparent !important; border: 1px solid rgba(0,0,0,0.2); }
+  .hint { font-size: 13px; opacity: 0.55; margin-top: 4px; }
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>찾아줘 가족 초대</h1>
-    <p>아래 초대 코드로 가족 그룹에 참여할 수 있어요.</p>
+  <div class="card" id="card">
+    <h1 id="heading">초대</h1>
+    <p id="desc"></p>
     <div class="code" id="code">------</div>
-    <a class="btn btn-primary" id="storeLink" href="#">Play 스토어에서 설치하기</a>
+    <a class="btn" id="storeLink" href="#">Play 스토어에서 설치하기</a>
     <button class="btn btn-secondary" id="copyBtn">초대 코드 복사하기</button>
-    <p class="hint">설치 버튼을 누르면 초대 코드가 앱 설치 후 자동으로 전달돼요.<br />
-      이미 앱이 있는데 이 화면이 보인다면, 앱을 열고 "가족 관리 &gt; 참여하기"에서<br />
-      위 코드를 직접 입력해주세요.</p>
+    <p class="hint" id="hint"></p>
   </div>
   <script>
-    // GitHub Pages는 /invite/{code} 처럼 실제 파일이 없는 경로를 전부 이
-    // 404.html로 대신 서빙한다(HTTP 상태만 404, 화면은 정상 렌더링됨) — 그래서
-    // invite/index.html과 똑같은 경로 파싱 로직을 여기도 그대로 둔다.
-    const packageName = 'com.duruone.location';
-    const parts = location.pathname.split('/').filter(Boolean);
-    const inviteIndex = parts.indexOf('invite');
-    const code = inviteIndex !== -1 ? (parts[inviteIndex + 1] || '') : '';
+    // GitHub Pages는 /invite/{code}, /heal-invite/{code}처럼 실제 파일이 없는 경로를
+    // 전부 이 404.html로 대신 서빙한다(HTTP 상태만 404, 화면은 정상 렌더링됨) — 그래서
+    // 앱별 초대 페이지가 하나라도 있으면 코드가 붙은 실제 링크는 전부 여기를 거친다.
+    // 앱마다 고유 경로 세그먼트(찾아줘=invite, 희망나눔=heal-invite)로 브랜드를
+    // 구분해서 렌더링한다 — 새 앱을 추가할 땐 이 APPS 목록에 항목만 추가하면 된다.
+    // 세그먼트 이름이 서로를 부분 포함하지 않게(예: "invite"가 "heal-invite"의 substring)
+    // 주의할 것 — 아래에서 긴 키부터 찾아 이 문제를 피한다.
+    var APPS = {
+      'heal-invite': {
+        title: '희망나눔 희망동행 초대',
+        heading: '희망나눔 희망동행 초대',
+        desc: '아래 초대 코드로 희망동행에 연결할 수 있어요.',
+        hint: '이미 앱이 깔려 있다면 이 화면 대신 앱이 바로 열리면서 자동으로 연결돼요.<br />새로 설치했다면, 앱을 열고 설정 화면의 "초대코드로 연결하기"에서<br />위 코드와 관계를 입력해 연결해주세요.',
+        packageName: 'com.duruone.hope',
+        bodyBg: '#F7FAFA',
+        cardBg: '#FFFFFF',
+        textColor: '#22252A',
+        codeBg: '#DFF7F3',
+        codeColor: '#0B8F80',
+        btnBg: '#00B8A6',
+      },
+      invite: {
+        title: '찾아줘 가족 초대',
+        heading: '찾아줘 가족 초대',
+        desc: '아래 초대 코드로 가족 그룹에 참여할 수 있어요.',
+        hint: '설치 버튼을 누르면 초대 코드가 앱 설치 후 자동으로 전달돼요.<br />이미 앱이 있는데 이 화면이 보인다면, 앱을 열고 "가족 관리 &gt; 참여하기"에서<br />위 코드를 직접 입력해주세요.',
+        packageName: 'com.duruone.location',
+        bodyBg: '#FBEACB',
+        cardBg: '#FFF8E9',
+        textColor: '#4A2E22',
+        codeBg: '#FBEACB',
+        codeColor: '#4A2E22',
+        btnBg: '#F16A5C',
+      },
+    };
 
-    document.getElementById('code').textContent = code || '코드 없음';
+    var parts = location.pathname.split('/').filter(Boolean);
+    var appKey = Object.keys(APPS)
+      .sort(function (a, b) { return b.length - a.length; })
+      .filter(function (key) { return parts.indexOf(key) !== -1; })[0];
+    var app = APPS[appKey] || APPS.invite;
+    var appIndex = parts.indexOf(appKey || 'invite');
+    var code = appIndex !== -1 ? (parts[appIndex + 1] || '') : '';
 
-    const referrer = encodeURIComponent('invite_code=' + code);
-    document.getElementById('storeLink').href =
-      'https://play.google.com/store/apps/details?id=' + packageName + '&referrer=' + referrer;
+    document.title = app.title;
+    document.body.style.background = app.bodyBg;
+    document.body.style.color = app.textColor;
+    document.getElementById('card').style.background = app.cardBg;
+    document.getElementById('heading').textContent = app.heading;
+    document.getElementById('desc').textContent = app.desc;
+    document.getElementById('hint').innerHTML = app.hint;
+
+    var codeEl = document.getElementById('code');
+    codeEl.textContent = code || '코드 없음';
+    codeEl.style.background = app.codeBg;
+    codeEl.style.color = app.codeColor;
+
+    var storeLink = document.getElementById('storeLink');
+    storeLink.style.background = app.btnBg;
+    storeLink.href =
+      'https://play.google.com/store/apps/details?id=' + app.packageName +
+      '&referrer=' + encodeURIComponent('invite_code=' + code);
 
     document.getElementById('copyBtn').addEventListener('click', function () {
       navigator.clipboard.writeText(code).then(function () {
-        const btn = document.getElementById('copyBtn');
-        const original = btn.textContent;
+        var btn = document.getElementById('copyBtn');
+        var original = btn.textContent;
         btn.textContent = '복사했어요!';
         setTimeout(function () { btn.textContent = original; }, 1500);
       });
