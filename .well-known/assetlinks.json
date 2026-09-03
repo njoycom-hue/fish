@@ -1,16 +1,22 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.duruone.location",
       "sha256_cert_fingerprints": [
-        "9D:CE:1D:B3:D2:C2:14:9E:9D:B3:11:14:00:19:D4:CD:FB:D4:B9:E9:28:C9:84:F5:F6:38:BF:76:1D:D7:B9:B6"
+        "9D:CE:1D:B3:D2:C2:14:9E:9D:B3:11:14:00:19:D4:CD:FB:D4:B9:E9:28:C9:84:F5:F6:38:BF:76:1D:D7:B9:B6",
+        "40:96:6B:4A:ED:49:A3:2B:CB:7D:10:A5:3B:65:42:16:E3:E0:30:66:7B:48:89:D9:27:0E:01:66:15:FC:B8:00",
+        "0A:C0:5F:E5:14:23:20:FC:CF:70:42:0C:38:3F:F8:5F:B8:07:39:53:B8:45:DB:79:5B:23:BF:01:1B:14:07:3F"
       ]
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.duruone.hope",

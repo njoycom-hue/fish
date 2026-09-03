@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 크롬(안드로이드)의 "웹 콘텐츠 자동 다크 테마"와 삼성 인터넷 다크 모드는
+     페이지 색을 강제로 반전시키는데, color-scheme: light만으로는 막히지 않는다.
+     only light가 "이 페이지는 라이트 전용"이라는 명시적 거부 신호다. -->
+<meta name="color-scheme" content="light" />
 <title id="pageTitle">초대</title>
 <style>
-  :root { color-scheme: light; }
+  :root { color-scheme: only light; }
   body {
     margin: 0;
     min-height: 100vh;
@@ -44,9 +48,14 @@
     cursor: pointer;
     text-decoration: none;
     box-sizing: border-box;
-    color: #fff;
   }
-  .btn-secondary { background: transparent !important; border: 1px solid rgba(0,0,0,0.2); }
+  /* .btn에 color: #fff가 걸려 있고 .btn-secondary는 배경만 transparent로
+     덮었어서, "복사하기" 버튼이 흰 글자 + 투명 배경이 되어 크림색 카드 위에서
+     아예 안 보였다(다크 모드와 무관하게 항상). 버튼 종류마다 배경과 글자색을
+     한 쌍으로 지정하고, 강제 다크 모드에서 글자만 반전되는 것도 막기 위해
+     -webkit-text-fill-color까지 JS에서 함께 지정한다. */
+  .btn-primary { color: #fff; -webkit-text-fill-color: #fff; }
+  .btn-secondary { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.2); }
   .hint { font-size: 13px; opacity: 0.55; margin-top: 4px; }
 </style>
 </head>
@@ -55,7 +64,8 @@
     <h1 id="heading">초대</h1>
     <p id="desc"></p>
     <div class="code" id="code">------</div>
-    <a class="btn" id="storeLink" href="#">Play 스토어에서 설치하기</a>
+    <a class="btn btn-primary" id="storeLink" href="#">Play 스토어에서 설치하기</a>
+    <a class="btn btn-secondary" id="openAppLink" href="#">앱에서 열기</a>
     <button class="btn btn-secondary" id="copyBtn">초대 코드 복사하기</button>
     <p class="hint" id="hint"></p>
   </div>
@@ -85,8 +95,29 @@
         title: '찾아줘 가족 초대',
         heading: '찾아줘 가족 초대',
         desc: '아래 초대 코드로 가족 그룹에 참여할 수 있어요.',
-        hint: '설치 버튼을 누르면 초대 코드가 앱 설치 후 자동으로 전달돼요.<br />이미 앱이 있는데 이 화면이 보인다면, 앱을 열고 "가족 관리 &gt; 참여하기"에서<br />위 코드를 직접 입력해주세요.',
+        hint: '앱이 이미 있다면 "앱에서 열기"를 누르면 바로 참여돼요.<br />앱이 없으면 설치 버튼을 눌러주세요 — 초대 코드가 설치 후 자동으로 전달돼요.<br />둘 다 안 되면 앱을 열고 "가족 관리 &gt; 참여하기"에서 위 코드를 직접 입력해주세요.',
         packageName: 'com.duruone.location',
+        codeLabel: '초대 코드 복사하기',
+        referrerKey: 'invite_code',
+        bodyBg: '#FBEACB',
+        cardBg: '#FFF8E9',
+        textColor: '#4A2E22',
+        codeBg: '#FBEACB',
+        codeColor: '#4A2E22',
+        btnBg: '#F16A5C',
+      },
+      // 친구 추천 링크(link.duruone.com/friend/{code}). 지금까지 이 항목이
+      // 없어서 추천 링크를 열면 코드를 못 읽고 "코드 없음"이 뜬 채 가족 초대
+      // 화면이 나왔다. 초대와 달리 추천 보상은 "새로 가입하는 순간"에만
+      // 적용되므로(이미 계정이 있으면 지급되지 않는다) 안내 문구가 다르다.
+      friend: {
+        title: '찾아줘 친구 추천',
+        heading: '찾아줘 친구 추천',
+        desc: '아래 추천 코드로 새로 가입하면 추천한 분과 가입한 분 모두 이용권을 받아요.',
+        hint: '설치한 뒤 <b>구글 또는 카카오로 새로 가입</b>할 때 적용돼요.<br />로그인 화면의 "추천 코드가 있으신가요?"에 위 코드를 붙여넣어 주세요.<br />이미 찾아줘 계정이 있는 경우에는 추천 보상이 적용되지 않아요.',
+        packageName: 'com.duruone.location',
+        codeLabel: '추천 코드 복사하기',
+        referrerKey: 'referral_code',
         bodyBg: '#FBEACB',
         cardBg: '#FFF8E9',
         textColor: '#4A2E22',
@@ -117,13 +148,33 @@
     codeEl.style.background = app.codeBg;
     codeEl.style.color = app.codeColor;
 
+    var storeUrl =
+      'https://play.google.com/store/apps/details?id=' + app.packageName +
+      '&referrer=' + encodeURIComponent((app.referrerKey || 'invite_code') + '=' + code);
+
     var storeLink = document.getElementById('storeLink');
     storeLink.style.background = app.btnBg;
-    storeLink.href =
-      'https://play.google.com/store/apps/details?id=' + app.packageName +
-      '&referrer=' + encodeURIComponent('invite_code=' + code);
+    storeLink.href = storeUrl;
 
-    document.getElementById('copyBtn').addEventListener('click', function () {
+    // 앱이 설치돼 있는데도 이 화면이 보인다면 App Links 도메인 검증이 통과하지
+    // 못한 상태다(assetlinks.json의 지문과 설치된 앱의 서명 지문이 다르거나,
+    // 파일을 못 읽는 경우). 그때 링크를 다시 눌러도 OS는 앱으로 안 보내주므로,
+    // package를 명시한 intent:// 링크로 앱을 직접 지목해서 연다 — 명시적
+    // intent는 도메인 검증과 무관하게 그 앱의 intent-filter로 전달된다.
+    var openAppLink = document.getElementById('openAppLink');
+    openAppLink.style.color = app.btnBg;
+    openAppLink.style.webkitTextFillColor = app.btnBg;
+    openAppLink.href =
+      'intent://link.duruone.com/' + (appKey || 'invite') + '/' + encodeURIComponent(code) +
+      '#Intent;scheme=https;package=' + app.packageName +
+      ';S.browser_fallback_url=' + encodeURIComponent(storeUrl) + ';end';
+
+    var copyBtn = document.getElementById('copyBtn');
+    copyBtn.textContent = app.codeLabel || '초대 코드 복사하기';
+    copyBtn.style.color = app.textColor;
+    copyBtn.style.webkitTextFillColor = app.textColor;
+
+    copyBtn.addEventListener('click', function () {
       navigator.clipboard.writeText(code).then(function () {
         var btn = document.getElementById('copyBtn');
         var original = btn.textContent;
