@@ -10,7 +10,7 @@
 <div class="wrap">
 <header>
   <h1>개인정보처리방침</h1>
-  <p class="sub">수면 ASMR · 시행일 2026년 8월 23일</p>
+  <p class="sub">수면 ASMR · 시행일 2026년 9월 5일 (이전 방침 2026년 8월 23일)</p>
   <nav style="margin-top:14px">
     <a href="./">홈</a><a href="terms.html">이용약관</a>
   </nav>
@@ -73,10 +73,16 @@
   <tr><td>포그라운드 서비스 / 미디어 재생</td><td>화면을 끈 상태에서도 소리를 계속 재생하기 위해</td></tr>
   <tr><td>알림</td><td>재생 중임을 알리고 정지 버튼을 제공하기 위해</td></tr>
   <tr><td>절전 모드 해제</td><td>화면이 꺼져도 소리가 끊기지 않게 하기 위해</td></tr>
+  <tr><td>마이크</td><td>"직접 녹음" 화면에서 사용자가 자기 수면음을 직접 녹음할 때만</td></tr>
 </table>
-<p>위치·마이크·카메라·연락처·저장소 등 민감 권한은 사용하지 않습니다.
-인터넷 권한이 있다고 해서 수면 감지 센서 값이나 사용자가 넣은 소리 파일이
-밖으로 나가는 것은 아닙니다 — 그 둘은 광고 SDK와 코드상으로 분리되어 있습니다.</p>
+<p><strong>마이크에 대하여.</strong> 마이크는 사용자가 "직접 녹음" 화면에서 녹음 버튼을
+누른 동안에만 켜집니다. 앱을 열 때나 소리를 재생하는 동안에는 켜지지 않습니다.
+녹음된 소리는 <strong>이 기기의 앱 폴더에만</strong> 저장되며 서버로도 광고 네트워크로도
+전송되지 않습니다. 목록에서 그 소리를 지우면 파일도 함께 지워지고, 앱을 삭제하면
+남김없이 사라집니다.</p>
+<p>위치·카메라·연락처·저장소 등 나머지 민감 권한은 사용하지 않습니다.
+인터넷 권한이 있다고 해서 수면 감지 센서 값이나 사용자가 넣은·녹음한 소리 파일이
+밖으로 나가는 것은 아닙니다 — 그것들은 광고 SDK와 코드상으로 분리되어 있습니다.</p>
 
 <h2>5. 제3자 제공 및 처리 위탁</h2>
 <p><strong>Google AdMob</strong>이 유일한 제3자입니다. 광고 게재를 위해 위 3번에 적은
@@ -139,10 +145,14 @@ device is your own settings (chosen sounds, volume, timer length, tone), removed
 uninstall the app.</p>
 <p>Permissions used: internet and network state (for ad requests and fetching the ad-timing
 settings above), foreground service / media playback (to keep audio running with the screen off),
-notifications (to show playback status and a stop button), and wake lock (to keep audio from
-stalling). No location, microphone, camera, contacts, or storage access. Google AdMob is the only
-third party; <code>duruone.com</code> is the developer's own server, not a third party, and no
-other advertising network or analytics SDK is included.</p>
+notifications (to show playback status and a stop button), wake lock (to keep audio from
+stalling), and the microphone. No location, camera, contacts, or storage access. Google AdMob is
+the only third party; <code>duruone.com</code> is the developer's own server, not a third party,
+and no other advertising network or analytics SDK is included.</p>
+<p>The microphone is used only while you are recording your own sleep sound on the "record"
+screen — never on app launch and never during playback. Recordings are stored in this app's
+folder on your device only; they are not uploaded to any server or shared with the ad network.
+Deleting the sound from the list deletes the file, and uninstalling the app removes everything.</p>
 <p>Separately from the AdMob banner ad, the home screen may also show a spot for an image bundled
 with the app itself. That image doesn't go through any ad network — it needs no network
 connection and sends nothing anywhere. Tapping it just opens your device's browser.</p>
