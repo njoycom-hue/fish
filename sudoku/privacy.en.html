@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghost Sudoku · Privacy Policy</title>
+<link rel="stylesheet" href="_style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+	<h1>Privacy Policy</h1>
+	<div class="date">Effective 5 September 2026 · Last updated 5 September 2026 · <a href="privacy.html">한국어</a></div>
+</header>
+
+<div class="card">
+<p><strong>The short version.</strong> This app contains <strong>no analytics SDK and no crash-reporting SDK.</strong> It does not build a behavioural profile of you, does not access your location, contacts or photos, and does not sell personal information.</p>
+<p>It does run its own server, for leaderboards and live duels, and it does contain <strong>optional rewarded ads</strong>. So some things are stored. Everything that is, and why, is below.</p>
+</div>
+
+<h2>1. Scope</h2>
+<p>This policy covers the mobile application <strong>Ghost Sudoku</strong> ("the app") and its game server.</p>
+
+<h2>2. You can use it without an account</h2>
+<p>Solving puzzles, the daily challenge, statistics and achievements all work offline.</p>
+<p>On first launch the app opens a <strong>guest session</strong> on the server automatically. That session holds a randomly generated account identifier and a display name, and nothing that identifies you. Signing in is only needed if you want your progress to follow you to another device.</p>
+
+<h2>3. What the server stores</h2>
+<table>
+<tr><th>Data</th><th>When</th><th>Why</th></tr>
+<tr><td>Account identifier, display name</td><td>First launch (guest), or on sign-in</td><td>To tell players apart on leaderboards and in duels</td></tr>
+<tr><td>Google account identifier (the <code>sub</code> claim)</td><td>Only if you choose Google sign-in</td><td>So you return to the same account</td></tr>
+<tr><td>Apple account identifier (the <code>sub</code> claim)</td><td>Only if you choose Apple sign-in</td><td>Same</td></tr>
+<tr><td>Email address</td><td>Only if you register with email directly</td><td>Account recovery</td></tr>
+<tr><td>Game progress, statistics, coins, achievements</td><td>While signed in</td><td>So progress follows you across devices</td></tr>
+<tr><td>Daily challenge results — time taken, mistake count, a timeline of how many cells were correct at each moment</td><td>On completing the daily challenge</td><td>Leaderboards and the "race the leader" feature</td></tr>
+<tr><td>Duel records — room code, difficulty, players, winner, end reason, rating</td><td>When you play a live duel</td><td>Rating and dispute resolution</td></tr>
+</table>
+
+<h3>What it does not store</h3>
+<ul>
+<li><strong>From Google and Apple sign-in we receive only an account identifier and the name you chose to display.</strong> Your password is never given to this app.</li>
+<li><strong>Leaderboard results contain no cells and no digits.</strong> Only counts — how many cells were correct at each second. That was a design constraint from the start, so that another player's record can never become a route to the day's solution.</li>
+<li>The app itself does not collect advertising identifiers, location, contacts, photos, or call logs.</li>
+</ul>
+
+<h2>4. What stays on your device</h2>
+<p>These never leave your device:</p>
+<ul>
+<li>App settings — theme, language, sound, haptics</li>
+<li>Your in-progress board and pencil marks</li>
+<li>The replay data of your best runs, used for ghost racing</li>
+<li>Whether you have seen the tutorial, and your notification preferences</li>
+</ul>
+<p>Deleting the app deletes them.</p>
+
+<h3>Notifications</h3>
+<p>Reminders — a streak about to break, the daily challenge being ready — are scheduled <strong>locally on the device</strong>. There is no push service, so no push token is created or transmitted. You can turn them off in the app or in your device settings.</p>
+
+<h2>5. Third-party services</h2>
+<table>
+<tr><th>Provider</th><th>Purpose</th><th>What is processed</th></tr>
+<tr><td>Google LLC (Sign-In)</td><td>Signing in with a Google account</td><td>Only if you choose it. Governed by Google's policies</td></tr>
+<tr><td>Apple Inc. (Sign in with Apple)</td><td>Signing in with an Apple account</td><td>Only if you choose it. Governed by Apple's policies</td></tr>
+<tr><td>Google LLC (AdMob)</td><td>Rewarded ads that grant coins and hints</td><td>The ad SDK processes device and app information and advertising identifiers, under Google's policies</td></tr>
+<tr><td>Google Play / App Store</td><td>In-app purchase payments</td><td>Payment details are handled by the store and never reach this app or its server</td></tr>
+</table>
+<p>Watching ads is entirely <strong>optional</strong>. Every feature of the game is reachable without ever watching one.</p>
+
+<h2>6. Retention and security</h2>
+<p>Passwords are stored only as hashes; the plaintext is never kept. The refresh tokens that keep you signed in are likewise stored only as SHA-256 hashes, and are destroyed and reissued on every use. Traffic to the server is encrypted with HTTPS.</p>
+<p>Account data is kept while the account exists. Leaderboard and duel records underpin the standings and ratings, so on account deletion they are removed or retained in a form no longer linked to you.</p>
+
+<h2>7. Your rights</h2>
+<p>You may ask to access, correct, delete, or restrict processing of your information. Write to the address below and we will act on it.</p>
+<ul>
+<li><strong>Account deletion</strong> — ask by email and we will delete the account and the records linked to it.</li>
+<li><strong>Guest accounts</strong> — deleting the app removes what is on the device. You may also ask us to delete the server-side guest record.</li>
+</ul>
+
+<h2>8. Children</h2>
+<p>The app is not directed at any particular age group and does not knowingly collect personal information from children. If we learn that we have, we delete it.</p>
+
+<h2>9. Changes</h2>
+<p>If this policy changes, we update this document and the "Last updated" date above. Material changes, such as collecting something new, are also announced in the app.</p>
+
+<h2>10. Contact</h2>
+<ul>
+<li>App: Ghost Sudoku</li>
+<li>Developer: Duruone (두루원)</li>
+<li>Email: <a href="mailto:admin@duruone.com">admin@duruone.com</a></li>
+</ul>
+
+<div class="nav">
+	<a href="index.html">← Home</a>
+	<a href="terms.en.html">Terms of Service</a>
+	<a href="privacy.html">한국어</a>
+</div>
+
+<footer>Ghost Sudoku · Privacy Policy</footer>
+
+</div>
+</body>
+</html>
